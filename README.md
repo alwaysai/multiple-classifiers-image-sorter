@@ -29,7 +29,7 @@ target_labels | array of strings | List of all labels this model should be filte
 
 ## Running
 Use the alwaysAI CLI to build and start this app:
-Build: `aai app deploy`
+Build: `aai app install`
 Run: `aai app start`
 **NOTE: You can run this app remotely onto another device or build & run locally. Use `aai app configure` to select.**
 
