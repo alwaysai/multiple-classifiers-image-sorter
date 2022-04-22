@@ -36,6 +36,7 @@ Run: `aai app start`
 ## Support
 Docs: https://dashboard.alwaysai.co/docs/getting_started/introduction.html
 
-Discord: https://discord.gg/R2uM36U
+Discord: https://discord.gg/alwaysai
 
 Email: contact@alwaysai.co
+
