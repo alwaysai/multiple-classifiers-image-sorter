@@ -45,7 +45,7 @@ def main():
     empty_folder = config[EMPTY_FOLDER]
 
     # Spin up all the classifiers listed in the configuration file into an array
-    classifiers = classifiers_from(classifiers_config, auto_detected_engine())
+    classifiers = classifiers_from(classifiers_config, edgeiq.Engine.DNN)
 
     # Get all paths for images in the designated source folder
     image_paths = sorted(list(edgeiq.list_images(SOURCE_FOLDER + '/')))
@@ -86,30 +86,6 @@ def load_json(filepath):
             'app.py: load_json: File at {} does not exist'.format(filepath))
     with open(filepath) as data:
         return json.load(data)
-
-
-def auto_detected_engine():
-    '''
-    Automatically use an Intel/Movidius Neural compute stick if available,
-    otherwise run the onboard GPU. NOTE that not all models can make
-    use of this USB device. If you get a `Failed to initialize Inference Engine backend`
-    error, disconnect the stick and try running the app again.
-    '''
-    if is_accelerator_available() == True:
-        print('app.py: auto_detected_engine: An accelerator was detected')
-        return edgeiq.Engine.DNN_OPENVINO
-    return edgeiq.Engine.DNN
-
-
-def is_accelerator_available():
-    """Detect if an Intel Neural Compute Stick accelerator is attached"""
-    if edgeiq.find_usb_device(id_vendor=edgeiq.constants.NCS1_VID, id_product=edgeiq.constants.NCS1_PID) == True:
-        return True
-    if edgeiq.find_usb_device(edgeiq.constants.NCS1_VID, edgeiq.constants.NCS1_PID2) == True:
-        return True
-    if edgeiq.find_usb_device(edgeiq.constants.NCS2_VID, edgeiq.constants.NCS2_PID) == True:
-        return True
-    return False
 
 
 def classifiers_from(array_of_objects, engine=edgeiq.Engine.DNN):
