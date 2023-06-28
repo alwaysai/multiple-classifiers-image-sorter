@@ -3,9 +3,9 @@
     "start": "python app.py"
   },
   "models": {
-    "alwaysai/shufflenet_1x_g3": 3,
+    "alwaysai/shufflenet_1x_g3": 4,
     "alwaysai/squeezenet_v1.1": 1,
-    "alwaysai/alexnet": 7
+    "alwaysai/alexnet": 8
   },
   "classifiers_needed_to_agree": 0.5,
   "classifiers": [
@@ -358,7 +358,7 @@
     },
     {
       "model_id": "alwaysai/squeezenet_v1.1",
-      "confidence_level_threshold": 9.0,
+      "confidence_level_threshold": 9,
       "target_labels": [
         "cock",
         "hen",
