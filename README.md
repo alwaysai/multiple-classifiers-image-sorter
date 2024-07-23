@@ -1,7 +1,7 @@
 # Classifier based Image Sorter
 This app can use any number of image classifiers to detect any number of target labels, then sort those images into 1 of 2 folders if the target label is detected.
 
-To edit, add, or remove models, be sure to use the appropriate [alwaysAI CLI commands](https://dashboard.alwaysai.co/docs/application_development/changing_the_model.html) to do so, in addition to adding a classifier record into the `alwaysai.app.json` file (see the Configuration section below).
+To edit, add, or remove models, be sure to use the appropriate [alwaysAI CLI commands](https://docs.alwaysai.co/application_development/application_configuration.html#change-the-computer-vision-model) to do so, in addition to adding a classifier record into the `alwaysai.app.json` file (see the Configuration section below).
 
 ## Requirements
 - Sign up for [alwaysAI](https://dashboard.alwaysai.co/auth?register=true)
@@ -23,7 +23,7 @@ Classifier Information:
 
 Key | Value Type | Description
 -----| ---------- | ----------
-model_id | string | The model id as found from [alwaysAI's Model Catalog](https://dashboard.alwaysai.co/model-catalog/models?category=Classification). Note that there should be a duplicate of this string value in the higher level 'models' key-value pair which is used by alwaysAI's CLI tool. To add or remove models for download, see [the docs here](https://dashboard.alwaysai.co/docs/application_development/changing_the_model.html)
+model_id | string | The model id as found from [alwaysAI's Model Catalog](https://dashboard.alwaysai.co/model-catalog/models?category=Classification). Note that there should be a duplicate of this string value in the higher level 'models' key-value pair which is used by alwaysAI's CLI tool. To add or remove models for download, see [the docs here](https://docs.alwaysai.co/application_development/application_configuration.html#change-the-computer-vision-model)
 confidence_level_threshold | float | Each model has a [confidence_level](https://dashboard.alwaysai.co/docs/reference/edgeiq.html#edgeiq.image_classification.ClassificationPrediction) value that's provided with each [classification prediction](https://dashboard.alwaysai.co/docs/reference/edgeiq.html#edgeiq.image_classification.ClassificationResults). Many models will use a float value from 0.0-1.0 with 1.0 = 100%, but some models may have a different value based system, like `squeezenet_v1_1`
 target_labels | array of strings | List of all labels this model should be filtering / looking for. This will usually be a subset of all the available labels this model is capable of detecting. If no labels are specified nothing will be returned, in other words the `detected_output_folder` will be empty after processing
 
